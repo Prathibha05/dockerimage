@@ -8,7 +8,7 @@ pipeline{
    stages{
        stage('gitclone'){
    steps{
-      git branch: 'main', url: 'https://github.dxc.com/pb82/pushimage.git'
+      git branch: 'main', url: 'https://github.com/Prathibha05/dockerimage.git'
  }
 }
     stage('build'){
@@ -24,7 +24,6 @@ pipeline{
  }
     stage('push'){
         steps{
-         sh 'docker login -u prathibh1234 -p Chinni@0505'
          sh 'docker push prathibha1234/httpd-image:latest'
         }
     }
