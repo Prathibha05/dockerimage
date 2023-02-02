@@ -1,0 +1,4 @@
+FROM httpd:latest
+EXPOSE 80
+RUN rm /usr/local/apache2/htdocs/index.html
+COPY dockerex/ /usr/local/apache2/htdocs/
