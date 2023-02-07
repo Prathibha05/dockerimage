@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+ agent any
  environment{
     DOCKERHUB_CREDENTIALS=credentials('prathibha05-dockerhub')
     registry="prathibha1234/jenkinsrepo05"
@@ -18,12 +18,14 @@ pipeline{
  }
     stage('login'){
        steps{
-         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			
+        //sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+		  sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PWD'
+         
  }
  }
     stage('push'){
         steps{
+        // sh 'docker login -u prathibh1234 -p Chinni@0505'
          sh 'docker push prathibha1234/httpd-image:latest'
         }
     }
